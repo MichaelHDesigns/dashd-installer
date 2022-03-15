@@ -33,8 +33,8 @@ sudo apt install -y libboost-system-dev libboost-filesystem-dev libboost-chrono-
 #sudo apt-get update -y
 
 #Option 2: Ubuntu :
-#sudo add-apt-repository ppa:bitcoin/bitcoin
-#sudo apt-get update -y
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt-get update -y
 
 
 
