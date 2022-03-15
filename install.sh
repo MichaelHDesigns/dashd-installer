@@ -9,12 +9,12 @@ sudo mkdir -p $my_tmpd
 echo "#################################"
 echo "##  tmpdir: $my_tmpd  ##"
 echo "#################################"
-dash_prefix=/opt/helpthehomeless
+helpthehomeless_prefix=/opt/helpthehomeless
 #my_prefix=/usr/local
 my_prefix=/opt/helpthehomeless
-sudo mkdir -p $helpthehomeless/etc $helpthehomeless/var
+sudo mkdir -p $helpthehomeless_prefix/etc $helpthehomeless_prefix/var
 sudo mkdir -p $my_prefix
-sudo chown -R $(whoami):$(whoami) $my_tmpd $helpthehomeless
+sudo chown -R $(whoami):$(whoami) $my_tmpd $helpthehomelessh_prefix
 
 export CPPFLAGS="-I$my_prefix/include ${CPPFLAGS:-}"
 export CXXFLAGS="$CPPFLAGS"
@@ -114,7 +114,7 @@ pushd $my_tmpd
   #Or if you want to test the last updates :
   #git clone https://github.com/dashpay/dash -b v0.12.2.x
 
-  pushd dash
+  pushd helpthehomelesscoin
     ./autogen.sh
     ./configure --prefix=$my_prefix --without-gui # --disable-wallet | tee config.log.txt # --without-miniupnpc --with-incompatible-bdb
     make -j$DASH_NUM_CPUS
@@ -131,8 +131,8 @@ pushd $my_tmpd
 popd
 
 sudo adduser helpthehomeless --home /opt/helpthehomeless --disabled-password --gecos ''
-sudo rsync -av ./helpthehomeless.conf $helpthehomeless/etc/
-sudo chown -R helpthehomeless:helpthehomeless $helpthehomeless/
+sudo rsync -av ./helpthehomeless.conf $helpthehomeless_prefix/etc/
+sudo chown -R helpthehomeless:helpthehomeless $helpthehomeless_prefix/
 sudo rsync -av ./dist/etc/systemd/system/helpthehomelessd.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable helpthehomelessd
