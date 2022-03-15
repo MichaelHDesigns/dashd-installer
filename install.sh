@@ -14,7 +14,7 @@ helpthehomeless_prefix=/opt/helpthehomeless
 my_prefix=/opt/helpthehomeless
 sudo mkdir -p $helpthehomeless_prefix/etc $helpthehomeless_prefix/var
 sudo mkdir -p $my_prefix
-sudo chown -R $(whoami):$(whoami) $my_tmpd $helpthehomelessh_prefix
+sudo chown -R $(whoami):$(whoami) $my_tmpd $helpthehomeless_prefix
 
 export CPPFLAGS="-I$my_prefix/include ${CPPFLAGS:-}"
 export CXXFLAGS="$CPPFLAGS"
